@@ -3,20 +3,22 @@ import React, { useState, useEffect } from 'react'
 import SupplyTile from "./SupplyTile"
 
 const SuppliesList = (props) => {
-  const supplyTiles = props.supplies.map(supply => {
+  // console.log(props.suppliesData)
+
+  const supplyComponents = props.suppliesData.map((supply) => {
+    // console.log(supply);
     return (
-      <SupplyTile
-        item={supply.item}
+      <SupplyTile 
         key={supply.id}
-        id={supply.id}
+        item={supply.item}
       />
     )
   })
 
   return (
     <div>
-      <h3>Supplies:</h3>
-      <ul>{supplyTiles}</ul>
+      <h3>Supplies</h3>
+      {supplyComponents}
     </div>
   )
 }

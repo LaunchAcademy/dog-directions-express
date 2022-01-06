@@ -1,19 +1,40 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import DirectionTile from "./DirectionTile"
 
 const DirectionsList = (props) => {
-  const directionTiles = props.directions.map(direction => {
+  const [selectedId, setSelectedId] = useState(null)
+  
+  const directionTiles = props.directions.map((direction) => {
 
-    // const setSelectedDirectionClosure = () => {
-      //   setter function with id of direction as an argument
-      //   e.g. setSelectedDirection(direction.id)
-      // }
+    const setSelectedDirectionClosure = () => {
+      console.log("i was clicked");
+      setSelectedId(direction.id)
+
+      // if state was an array - not for core!
+      // setSelectedIds([...selectedIds, direction.id])
+    }
+
+    let selectedColorClass
+
+    if (selectedId === direction.id) {
+      selectedColorClass = "selected"
+    }
+
+    // <DirectionTile
+    //   key={direction.id}
+    //   step={direction.step}
+    //   id={direction.id}
+    //   setSelectedId={setSelectedId}
+    //   selectedId={selectedId}
+    // />
     return (
       <DirectionTile
-        step={direction.step}
         key={direction.id}
+        step={direction.step}
         id={direction.id}
+        setSelectedDirectionClosure={setSelectedDirectionClosure}
+        selectedColorClass={selectedColorClass}
       />
     )
   })

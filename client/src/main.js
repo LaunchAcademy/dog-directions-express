@@ -8,7 +8,7 @@ import RedBox from "redbox-react"
 import data from "./constants/data"
 
 // ReactDOM.render(
-//   <App data={app}/>,
+//   <App data={data}/>,
 //   document.getElementById("app")
 // )
 
